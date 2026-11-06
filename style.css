@@ -8,12 +8,14 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #101827;
+    background-color: #101827;
     color: white;
+    line-height: 1.6;
 }
 
+/* Header and Navigation */
 header {
-    background: #17243a;
+    background-color: #17243a;
     padding: 20px 8%;
     position: sticky;
     top: 0;
@@ -47,45 +49,61 @@ nav a.active {
     color: #38bdf8;
 }
 
+/* Common Sections */
 section {
-    padding: 80px 10%;
+    padding: 70px 10%;
     text-align: center;
+    scroll-margin-top: 75px;
 }
 
-.hero {
-    padding: 100px 0;
-}
-
-.profile-img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #38bdf8;
+section h2 {
+    font-size: 30px;
+    color: #38bdf8;
     margin-bottom: 25px;
 }
 
-.hero h1 {
-    font-size: 42px;
-    margin-bottom: 15px;
+/* Home Section */
+#home {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.hero span {
+.hero {
+    max-width: 750px;
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #38bdf8;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.hero h1 span {
     color: #38bdf8;
 }
 
 .hero h3 {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .hero p {
-    color: #cbd5e1;
-    margin-bottom: 30px;
+    color: #c8d4f0;
+    margin-bottom: 25px;
 }
 
 .btn {
     display: inline-block;
-    background: #38bdf8;
+    background-color: #38bdf8;
     color: #101827;
     padding: 12px 25px;
     border-radius: 6px;
@@ -95,23 +113,18 @@ section {
 }
 
 .btn:hover {
-    background: white;
+    background-color: white;
     transform: translateY(-3px);
 }
 
-section h2 {
-    color: #38bdf8;
-    font-size: 30px;
-    margin-bottom: 25px;
-}
-
+/* About Section */
 #about p {
-    max-width: 700px;
+    max-width: 750px;
     margin: auto;
-    line-height: 1.8;
-    color: #cbd5e1;
+    color: #c8d4f0;
 }
 
+/* Skills Section */
 .skill-list {
     display: flex;
     justify-content: center;
@@ -120,47 +133,46 @@ section h2 {
 }
 
 .skill-list div {
-    background: #1e293b;
-    padding: 18px 30px;
-    border: 1px solid #334155;
+    background-color: #17243a;
+    padding: 15px 25px;
+    border: 1px solid #263c5c;
     border-radius: 8px;
     transition: 0.3s;
 }
 
 .skill-list div:hover {
-    border-color: #38bdf8;
+    background-color: #38bdf8;
+    color: #101827;
     transform: translateY(-5px);
 }
 
+/* Projects Section */
 .project-list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
 .project {
-    background: #1e293b;
+    background-color: #17243a;
     padding: 25px;
-    width: 280px;
     border-radius: 10px;
-    border: 1px solid #334155;
+    border: 1px solid #263c5c;
     transition: 0.3s;
 }
 
 .project:hover {
-    transform: translateY(-7px);
+    transform: translateY(-8px);
     border-color: #38bdf8;
 }
 
 .project h3 {
     color: #38bdf8;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .project p {
-    color: #cbd5e1;
-    line-height: 1.6;
+    color: #c8d4f0;
     margin-bottom: 20px;
 }
 
@@ -169,31 +181,57 @@ section h2 {
     color: #38bdf8;
     text-decoration: none;
     font-weight: bold;
+    margin: 5px 8px;
+    transition: 0.3s;
 }
 
 .project a:hover {
+    color: white;
     text-decoration: underline;
+}
+
+/* Contact Section */
+#contact p {
+    margin: 10px;
 }
 
 #contact a {
     color: #38bdf8;
+    text-decoration: none;
 }
 
-#contact p {
-    margin: 12px;
+#contact a:hover {
+    text-decoration: underline;
 }
 
+/* Footer */
 footer {
-    background: #17243a;
+    background-color: #17243a;
     text-align: center;
     padding: 20px;
-    color: #94a3b8;
+    color: #c8d4f0;
 }
 
-@media (max-width: 650px) {
+/* Scroll Effect */
+body.scrolled header {
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 800px) {
+    .project-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 15px 5%;
+    }
+
     nav {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
     }
 
     nav ul {
@@ -202,15 +240,15 @@ footer {
         gap: 15px;
     }
 
-    .hero h1 {
-        font-size: 30px;
-    }
-
     section {
-        padding: 60px 6%;
+        padding: 55px 6%;
     }
 
-    .project {
-        width: 100%;
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .project-list {
+        grid-template-columns: 1fr;
     }
 }
