@@ -2,26 +2,28 @@
 // Welcome message
 console.log("Welcome to Sushant's Portfolio!");
 
-// Show current year in footer
+// Update footer year
 const footer = document.querySelector("footer p");
 footer.textContent = `© ${new Date().getFullYear()} Sushant Neupane. All rights reserved.`;
 
-// Highlight navigation link when clicked
+// Highlight navigation links
 const navLinks = document.querySelectorAll("nav a");
 
 navLinks.forEach(link => {
     link.addEventListener("click", function() {
         navLinks.forEach(item => {
-            item.style.color = "white";
+            item.classList.remove("active");
         });
 
-        this.style.color = "#38bdf8";
+        this.classList.add("active");
     });
 });
 
-// Back to top message
+// Scroll message
 window.addEventListener("scroll", function() {
     if (window.scrollY > 300) {
-        console.log("You are scrolling through the portfolio!");
+        document.body.classList.add("scrolled");
+    } else {
+        document.body.classList.remove("scrolled");
     }
 });
